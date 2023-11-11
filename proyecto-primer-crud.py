@@ -50,3 +50,36 @@ def eliminar_contacto():
         print('El contacto no existe')
 
     app_principal()
+
+def Buscar_contacto():
+    nombre = input('Ingrese el nombre del contacto: \r\n')
+    try:
+        with open(CARPETA + nombre + EXTENSION) as contacto:            #trata de abrir el archivo
+            print('\r\n Informacion del contacto: \r\n')
+            for linea in contacto:
+
+                print(linea.rstrip())
+
+            print('\r\n')
+    
+    except IOError:                                                     #si el archivo no existe o da error imprime mensaje
+        print('el archivo no existe')
+
+    app_principal()
+
+def mostrar_contacto():
+    archivos = os.listdir(CARPETA)          #accedemos a contactos y listamos lo que hay dentro
+
+    archivos_txt = [i for i in archivos if i.endswith(EXTENSION)]               #validar que solo archivos .txt sean listados
+    
+    for archivo in archivos_txt:                                        #recorremos y abrimos los archivos
+        with open(CARPETA + archivo) as contacto:
+            for linea in contacto:                                      #recorrer cada linea del archivo a imprimir
+                print(linea.rstrip())                                   # imprimir y eliminar saltos de lineas
+        
+            print('\r\n')
+
+  
+
+    app_principal()
+
