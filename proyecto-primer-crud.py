@@ -38,3 +38,15 @@ def app_principal():
             preguntar = False
         else:
             print('Opcion no valida, intente de nuevo')
+
+def eliminar_contacto():
+    nombre = input('Ingrese el nombre del contacto a eliminar: \r\n')
+
+    try:
+        os.remove(CARPETA + nombre + EXTENSION)                     #trata de eliminar el archivo
+        print('\r\n Contacto eliminado correctamente')
+
+    except expression as identifier:
+        print('El contacto no existe')
+
+    app_principal()
