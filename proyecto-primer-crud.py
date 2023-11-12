@@ -83,3 +83,54 @@ def mostrar_contacto():
 
     app_principal()
 
+def editar_contacto():
+    print('Escribe el contacto a editar: \r\n')
+    nombre_anterior = input('nombre del contacto: \r\n')
+
+    existe = existe_nombre(nombre_anterior)                         #preguntar si existe el archivo
+
+    if existe:
+        with open(CARPETA + nombre_anterior + EXTENSION, 'w') as archivo:
+            nombre = input('Nuevo Nombre de contacto: \r\n')
+            telefono = input ('Nuevo numero de teleforo: \r\n')
+            profesion = input ('Nueva profesion: \r\n')
+
+            contacto = Contacto(nombre, telefono, profesion)         #instanciar clase
+        
+            archivo.write('nombre: ' + contacto.nombre + '\r\n')     #reescribir el archivo 
+            archivo.write('telefono: ' + contacto.telefono + '\r\n')
+            archivo.write('profesion: ' + contacto.profesion + '\r\n')
+
+            print('\r\n contacto editado correctamente \r\n')
+
+        os.rename(CARPETA + nombre_anterior + EXTENSION, CARPETA + nombre + EXTENSION)
+
+    else:
+        print('Ese contacto no existe')
+    
+    app_principal()
+
+def agregar_contacto():
+    print('Ingrese los datos del nuevo contacto:')
+    nombre = input('Nombre del contacto: \r\n')
+
+    existe = existe_nombre(nombre)
+
+    if not existe:
+        
+         with open(CARPETA + nombre + EXTENSION, 'w') as archivo:
+        
+            telefono = input ('ingrese el numero de teleforo: \r\n')
+            profesion = input ('ingrese la profesion: \r\n')
+
+            contacto = Contacto(nombre, telefono, profesion)         #instanciar clase
+        
+            archivo.write('nombre: ' + contacto.nombre + '\r\n')     #escribir el archivo 
+            archivo.write('telefono: ' + contacto.telefono + '\r\n')
+            archivo.write('profesion: ' + contacto.profesion + '\r\n')
+
+            print('\r\n contacto agregado correctamente \r\n')
+    else:
+        print('Ese contacto ya existe')
+    
+    app_principal()
