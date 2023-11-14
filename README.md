@@ -1,6 +1,6 @@
 # Proyecto-PrimerCRUD
 
-# Aplicación de Gestión de Contactos
+## Aplicación de Gestión de Contactos
 
 - Este proyecto es una aplicación simple de gestión de contactos desarrollada en Python como parte de un curso de python inicial. La aplicación permite agregar, editar, ver/buscar y eliminar contactos almacenados en archivos de texto.
 
