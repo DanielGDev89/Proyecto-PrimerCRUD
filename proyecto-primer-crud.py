@@ -134,3 +134,20 @@ def agregar_contacto():
         print('Ese contacto ya existe')
     
     app_principal()
+
+def mostrar_menu():
+    print('Seleccione la accion a realizar:')
+    print ('1) Agregar Contacto')
+    print ('2) Editar Contacto')
+    print ('3) Ver Contacto')
+    print ('4) Buscar Contacto')
+    print ('5) Eliminar Contacto')
+
+def crear_directorio():  # creacion de carpeta
+    if not os.path.exists(CARPETA):
+        os.makedirs(CARPETA)
+    
+def existe_nombre(nombre):
+    return os.path.isfile(CARPETA + nombre + EXTENSION)
+
+app_principal()
